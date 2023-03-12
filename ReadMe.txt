@@ -1,0 +1,1 @@
+I dette reposistory lægges filerne fra lærerens oplæg i Grundlæggende Databaser.
