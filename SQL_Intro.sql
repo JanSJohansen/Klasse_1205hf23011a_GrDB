@@ -51,7 +51,7 @@ create table Elev
 (
    id int primary key,
    name char(30) not null unique,
-   age int,
+   age int check(age between 0 and 100),
    Klasse_id int foreign key references Klasse(K_id)
 )
 go
@@ -60,8 +60,8 @@ go
 print 'Indsætter rækker i tabllen Klasse'
 insert into Klasse values(10, 'KlasseA', 'De dygtige elever')
 insert into Klasse values(20, 'KlasseB', 'De kreative elever')
-insert into Klasse values(30, 'Klassec', 'De smukke elever')
-
+insert into Klasse values(30, 'KlasseC', 'De smukke elever')
+insert into Klasse values(40, 'KlasseD', 'De klamme elever')
 
 print 'Indsætter data i tabellen Elev'
 
@@ -73,11 +73,30 @@ insert into Elev values(1004,  'Anders A', 26, 10)
 insert into Elev values(1005, 'Anders H', 18, 20)
 insert into Elev values(1006, 'Anders C', 19, 20)
 insert into Elev values(1007, 'Siw', 19, 10)
+insert into Elev values(1008, 'Jan', 100, 20)
 
 
-select id, name, age, Klasse_id from Elev where name like 'A%'
-
+select id, name from Elev where name like 'Anders%'
 
 select * from Elev
 select * from Klasse
+
 select * from Elev, Klasse where Klasse_id = K_id
+
+select * from Elev
+join Klasse
+on Klasse_id = K_id
+
+select * from Elev
+left join Klasse
+on Klasse_id = K_id
+
+select * from Elev
+right join Klasse
+on Klasse_id = K_id
+
+select * from Elev
+full outer join Klasse
+on Klasse_id = K_id
+
+
