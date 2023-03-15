@@ -1,4 +1,4 @@
-
+--Fire måder at oprette constraints på
 
 create table Navne1
 (
